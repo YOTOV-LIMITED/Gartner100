@@ -1,0 +1,310 @@
+```{r echo=FALSE}
+library(xtable)
+library(dplyr)
+g100 <- read.csv("Gartner100.csv", sep="|")
+
+table_spec <- function(i) {
+  data.frame(table(g100$Specific[g100$Main==levels_main[i]], dnn=list("Sujet"))) %>% 
+  filter(Freq>0) %>%
+  arrange(desc(Freq))}
+
+printMyTable <- function(tt)
+  {
+  tt %>% xtable %>% print(type="html")
+  }
+
+slidePrint <- function(tt)
+  tt %>% filter(Main==mainSlide & Specific==specSlide) %>% select(Phrase) %>% printMyTable
+
+levels_main = levels(g100$Main)
+```
+
+<style>
+/* Your other css */
+
+.section. reveal. state-background {
+    background: url(background.png);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+</style>
+
+Gartner: `r nrow(g100)` Information and Analytics Predictions Through 2020
+========================================================
+author: François Pelletier
+date: 28 mai 2015
+
+(TL;DR)
+========================================================
+
+- Gartner est une firme de recherche marketing dans le domaine de l'informatique et de l'administration. 
+- Ils publient fréquemment des prédictions sur la suituation des entreprises par rapport à l'adoption des nouvelles technologies. 
+- Je trouvais intéressant de vous partager leurs travaux question d'y trouver des nouvelles idées. 
+- De plus, c'est un de leurs rares articles qui ne fait pas que *plugger* des compagnies.
+
+========================================================
+![Nuage de mots](273368_0001.png)
+
+Distribution
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100$Main %>% table(dnn=list("Fréquence")) %>% printMyTable
+```
+
+`r (mainSlide <- levels_main[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(1)) %>% printMyTable
+```
+
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[3])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[4])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[5])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[6])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[7])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[8])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (mainSlide <- levels_main[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(2)) %>% printMyTable
+```
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (mainSlide <- levels_main[3])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(3)) %>% printMyTable
+```
+
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[3])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[4])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[5])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[6])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (mainSlide <- levels_main[4])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(4)) %>% printMyTable
+```
+
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (mainSlide <- levels_main[5])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(5)) %>% printMyTable
+```
+
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[3])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[4])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[5])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[6])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (mainSlide <- levels_main[6])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+(slideTable <- table_spec(6)) %>% printMyTable
+```
+
+`r (specSlide <- slideTable$Sujet[1])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[2])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[3])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[4])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[5])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+`r (specSlide <- slideTable$Sujet[6])`
+========================================================
+
+```{r echo=FALSE, results="asis"}
+g100 %>%slidePrint
+```
+
+Ressources
+========================================================
+[100 Information and Analytics Predictions Through 2020](https://www.gartner.com/doc/2974431/-information-analytics-predictions-#86757108)
